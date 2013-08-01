@@ -21,8 +21,7 @@ class BowlingGame
       next_roll = @rolls[current_roll + 1]
 
       if roll == 10
-        total_score += 10 + @rolls[current_roll + 1] + @rolls[current_roll + 2]
-        current_roll += 1
+        strike(total_score, current_roll)
       elsif roll + next_roll == 10
         total_score += 10 + @rolls[current_roll + 2]
         current_roll += 2
@@ -39,7 +38,8 @@ class BowlingGame
   private
 
   def strike
-    
+    total_score += 10 + @rolls[current_roll + 1] + @rolls[current_roll + 2]
+        current_roll += 1
   end
 
 
